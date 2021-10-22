@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/local/bin/gcc-11",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "macos-gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        },
+        {
+            "name": "godot-tf-inference",
+            "includePath": [
+                "${workspaceFolder}/godot-cpp/godot-headers/",
+                "${workspaceFolder}/godot-cpp/include/",
+                "${workspaceFolder}/godot-cpp/include/core/",
+                "${workspaceFolder}/godot-cpp/include/gen/",
+                "${workspaceFolder}/cppflow/include/",
+                "${workspaceFolder}/libtensorflow2/include/"
+            ],
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/local/bin/gcc-11",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "macos-gcc-x64"
+        }
+    ],
+    "version": 4
+}

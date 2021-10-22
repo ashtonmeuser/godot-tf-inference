@@ -1,0 +1,14 @@
+[general]
+
+singleton=false
+load_once=true
+symbol_prefix="godot_"
+reloadable=true
+
+[entry]
+
+OSX.64="res://addons/godot-tf-inference/osx/libgodot-tf-inference.dylib"
+
+[dependencies]
+
+OSX.64=[  ]
