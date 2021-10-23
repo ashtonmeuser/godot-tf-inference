@@ -1,11 +1,208 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Arial Rounded Bold.tres" type="DynamicFont" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 1 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="CenterContainer"]
+position = Vector2( -200, -162 )
+points = PoolVector2Array( 584, 448, 568, 456, 568, 440, 584, 448, 680, 448, 680, 384, 776, 384, 776, 392, 792, 384, 776, 376, 776, 384, 680, 384, 680, 320, 584, 320, 568, 312, 568, 328, 584, 320 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+
+[node name="LabelXOR" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -200.0
+margin_right = 96.0
+margin_bottom = -109.0
+custom_fonts/font = ExtResource( 2 )
+text = "XOR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelBit0" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -160.0
+margin_right = -160.0
+margin_bottom = -64.0
+focus_mode = 0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSubtitle0" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -64.0
+margin_right = -160.0
+margin_bottom = -48.0
+text = "Click to toggle bit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelBit1" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -32.0
+margin_right = -160.0
+margin_bottom = 64.0
+focus_mode = 0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSubtitle1" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 64.0
+margin_right = -160.0
+margin_bottom = 80.0
+text = "Click to toggle bit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelBit2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 160.0
+margin_top = -96.0
+margin_right = 288.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSubtitle2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_right = 352.0
+margin_bottom = 16.0
+text = "Raw value:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSubtitle3" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 352.0
+margin_bottom = 32.0
+text = "Inference time:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelDescription" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = 104.0
+margin_right = 288.0
+margin_bottom = 192.0
+text = "This is a trivial example showcasing infering from a TensorFlow model from GDScript.
+Note that the Godot TF Inference addon must be installed in this project for it to function.
+Note the TF model (in SavedModel format) contained in the tf_xor_model directory.
+In Main.gd, you'll find examples of several ways to interact with the addon and model.
+Addon source available at"
+valign = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LinkButton" type="LinkButton" parent="LabelDescription"]
+margin_left = 168.0
+margin_top = 74.0
+margin_right = 457.0
+margin_bottom = 88.0
+text = "github.com/ashtonmeuser/godot-tf-inference"
 __meta__ = {
 "_edit_use_anchors_": false
 }
