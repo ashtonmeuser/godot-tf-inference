@@ -9,6 +9,11 @@ func _ready():
 	assert(!$LabelBit0.connect("pressed", self, "_toggle_bit", [0]))
 	assert(!$LabelBit1.connect("pressed", self, "_toggle_bit", [1]))
 	assert(!$LabelDescription/LinkButton.connect("pressed", self, "_open_repo"))
+
+	# Load model and set signature names
+	TfInferenceSingleton.load_model("tf_xor_model")
+	TfInferenceSingleton.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
+
 	_update_labels()
 	_quick_example()
 
@@ -18,7 +23,7 @@ func _update_labels():
 	$LabelBit2.text = String(int(round(output[0])))
 	$LabelSubtitle2.text = "Raw value: %1.4f" % output[0]
 	$LabelSubtitle3.text = "Inference time: %03dus" % inference_time
-	
+
 func _toggle_bit(i: int):
 	input[i] = (input[i] + 1) % 2
 	var t := OS.get_ticks_usec()
@@ -35,15 +40,13 @@ func _quick_example():
 	# Please refer to the repo at github.com/ashtonmeuser/godot-tf-inference
 	# Feel free to open an issue or pull request
 
-	# Autoload TFInference singleton via Project Settings (recommended)
-	TfInferenceSingleton.load_model("./tf_xor_model")
-	TfInferenceSingleton.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
-	print("XOR(0, 0) = %s" % TfInferenceSingleton.infer([0, 0]))
-	
+	# Using autoloaded TFInference singleton via Project Settings (recommended)
+	print("XOR(0, 0) = %s" % [TfInferenceSingleton.infer([0, 0])])
+
 	# Alternatively, a local instance of TFInference class
 	var tf = TFInference.new()
 	tf.load_model("./tf_xor_model")
 	tf.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
-	print("XOR(1, 0) = %s" % tf.infer([1, 0]))
+	print("XOR(1, 0) = %s" % [tf.infer([1, 0])])
 
 # P.S. No, I did not want to draw the XOR gate

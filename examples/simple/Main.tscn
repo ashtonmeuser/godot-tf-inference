@@ -5,11 +5,11 @@
 
 [sub_resource type="Theme" id=1]
 
+[sub_resource type="StyleBoxFlat" id=2]
+
 [sub_resource type="StyleBoxFlat" id=3]
 
 [sub_resource type="StyleBoxFlat" id=4]
-
-[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 
 [node name="Main" type="Control"]
@@ -69,9 +69,9 @@ margin_top = -160.0
 margin_right = -160.0
 margin_bottom = -64.0
 focus_mode = 0
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 custom_fonts/font = ExtResource( 2 )
 text = "0"
 __meta__ = {
@@ -104,9 +104,9 @@ margin_top = -32.0
 margin_right = -160.0
 margin_bottom = 64.0
 focus_mode = 0
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 custom_fonts/font = ExtResource( 2 )
 text = "0"
 __meta__ = {
@@ -137,7 +137,7 @@ anchor_bottom = 0.5
 margin_left = 160.0
 margin_top = -96.0
 margin_right = 288.0
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 4 )
 custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 1

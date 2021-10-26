@@ -1,9 +1,11 @@
-#ifndef GDEXAMPLE_H
-#define GDEXAMPLE_H
+#ifndef GODOT_TF_INFERENCE_H
+#define GODOT_TF_INFERENCE_H
 
 #include <iostream>
 #include <Godot.hpp>
 #include <Node.hpp>
+#include <OS.hpp>
+#include <ProjectSettings.hpp>
 #include "cppflow/cppflow.h"
 
 namespace godot {

@@ -2,9 +2,39 @@
 
 Load and infer from TensorFlow SavedModel models from GDScript.
 
-## Installation & Usage
+Focus is not on training but rather using a model.
+
+## Installation
+
+Ensure you have a model in SavedModel format
+Download zip
+In Asset Library, import zip
+Include model in Godot project
+Choose how to expose addon (singleton or preload)
+
+## Usage
+
+Load model (do not specify res://)
+Set signature names
+Use infer()
+
+## Exporting Project
+
+### MacOS
+
+Subject to change after improving dependencies, export settings, etc.
+
+1. Ensure TF libraries are accessible (added to .app/Contents/Frameworks/)
+1. Ensure model is included (added to .app/Contents/MacOS/)
 
 ## Developing
+
+Clone repo
+Ensure correct submodules are checked out (refer to godot-cpp)
+Download TensorFlow C into libtensorflow2 directory
+Compile Godot C++ bindings
+Compile addon
+Zip addons directory
 
 ## Roadmap
 
@@ -13,6 +43,7 @@ Load and infer from TensorFlow SavedModel models from GDScript.
 - [x] Infer from model from GDScript
 - [x] Simple example Godot project
 - [ ] Exportable
+- [ ] Custom export template
 - [ ] Arbitrary tensor shape
 - [ ] Resolve Godot `res://` paths for model
 - [ ] Windows support

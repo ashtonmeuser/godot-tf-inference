@@ -19,8 +19,13 @@ void TFInference::_init() {
 }
 
 void TFInference::load_model(String name) {
+    name = name.trim_prefix("res://");
+    String path = ProjectSettings::get_singleton()->globalize_path(name);
+    if (OS::get_singleton()->has_feature("standalone")) {
+        path = OS::get_singleton()->get_executable_path().get_base_dir().plus_file(name);
+    }
     try {
-        this->model = new cppflow::model(name.alloc_c_string());
+        this->model = new cppflow::model(path.alloc_c_string());
     } catch (std::exception& e) {
         Godot::print("Error while loading model: {0}", e.what());
     }
@@ -48,9 +53,8 @@ Array TFInference::infer(Array array_in) {
 
         // Copy to Godot array
         for (float i: vec_out) array_out.push_back(i);
-        return array_out;
-    } catch (std::exception& e) {
+    } catch (const std::exception &e) {
         Godot::print("Error while infering: {0}", e.what());
-        return array_out;
     }
+    return array_out;
 }
