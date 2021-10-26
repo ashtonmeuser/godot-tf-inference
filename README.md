@@ -24,7 +24,7 @@ Use infer()
 
 Subject to change after improving dependencies, export settings, etc.
 
-1. Ensure TF libraries are accessible (added to .app/Contents/Frameworks/)
+1. Disable library validation in export template settings
 1. Ensure model is included (added to .app/Contents/MacOS/)
 
 ## Developing
@@ -42,7 +42,7 @@ Zip addons directory
 - [x] Specify signature names from GDScript
 - [x] Infer from model from GDScript
 - [x] Simple example Godot project
-- [ ] Exportable
+- [x] Exportable (with extra steps)
 - [ ] Custom export template
 - [ ] Arbitrary tensor shape
 - [ ] Resolve Godot `res://` paths for model

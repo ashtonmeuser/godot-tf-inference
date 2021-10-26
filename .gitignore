@@ -1,6 +1,6 @@
 .DS_Store
 .sconsign.dblite
 libtensorflow2/
-/addons/godot-tf-inference/*/
+/addons/**/*.dylib
 addons.zip
 *.os

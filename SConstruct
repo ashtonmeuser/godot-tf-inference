@@ -39,7 +39,7 @@ if env['platform'] == '':
 
 # Fix needed on OSX
 def rpath_fix(target, source, env):
-    os.system('install_name_tool -change @rpath/libtensorflow.2.dylib @loader_path/libtensorflow2/lib/libtensorflow.2.dylib {0}'.format(target[0]))
+    os.system('install_name_tool -change @rpath/libtensorflow.2.dylib @loader_path/libtensorflow.2.dylib {0}'.format(target[0]))
 
 # For reference:
 # - CCFLAGS are compilation flags shared between C and C++
