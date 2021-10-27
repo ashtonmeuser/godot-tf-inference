@@ -6,10 +6,11 @@
 #include <Node.hpp>
 #include <OS.hpp>
 #include <ProjectSettings.hpp>
+#include <Directory.hpp>
 #include "cppflow/cppflow.h"
 
 namespace godot {
-class TFInference: public Node {
+class TFInference : public Node {
     GODOT_CLASS(TFInference, Node)
 
 private:

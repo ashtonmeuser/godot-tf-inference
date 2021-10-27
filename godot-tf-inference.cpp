@@ -18,17 +18,52 @@ void TFInference::_init() {
     this->output_name = "StatefulPartitionedCall";
 }
 
+Error copy_resource_to_user_dir(String base_path_src) {
+    String base_path_dest = "user://" + base_path_src.trim_prefix("res://");
+    Ref<Directory> dir = Directory::_new();
+    Error error = dir->open(base_path_src);
+	if (error != Error::OK) return error;
+    if (!dir->dir_exists(base_path_src)) return Error::ERR_FILE_BAD_PATH;
+    if (!dir->dir_exists(base_path_dest)) { // Create dir if required
+        dir->make_dir_recursive(base_path_dest);
+    }
+    dir->list_dir_begin();
+    String file_name = dir->get_next();
+	while (file_name != "") {
+        String file_path_src = base_path_src + "/" + file_name;
+		String file_path_dest = base_path_dest + "/" + file_name;
+		if (dir->current_is_dir()) {
+			if (file_name != "." && file_name != "..") {
+				error = copy_resource_to_user_dir(file_path_src);
+				if (error != Error::OK) return error;
+            }
+        } else {
+			error = dir->copy(file_path_src, file_path_dest);
+			if (error != Error::OK) return error;
+        }
+		file_name = dir->get_next();
+    }
+    dir->list_dir_end();
+    return Error::OK;
+}
+
 void TFInference::load_model(String name) {
     name = name.trim_prefix("res://");
-    String path = ProjectSettings::get_singleton()->globalize_path(name);
-    if (OS::get_singleton()->has_feature("standalone")) {
-        path = OS::get_singleton()->get_executable_path().get_base_dir().plus_file(name);
+    Error error = copy_resource_to_user_dir("res://" + name);
+    // if (error != Error::OK) return error;
+    if (error != Error::OK) {
+        Godot::print("Failed to copy model directory: {0}", name);
+        return;
     }
+    String path = OS::get_singleton()->get_user_data_dir().plus_file(name);
     try {
         this->model = new cppflow::model(path.alloc_c_string());
     } catch (std::exception& e) {
         Godot::print("Error while loading model: {0}", e.what());
+        return;
+        // return Error::ERR_FILE_CANT_OPEN;
     }
+    // return Error::OK;
 }
 
 void TFInference::set_names(String input_name, String output_name) {

@@ -25,7 +25,7 @@ Use infer()
 Subject to change after improving dependencies, export settings, etc.
 
 1. Disable library validation in export template settings
-1. Ensure model is included (added to .app/Contents/MacOS/)
+1. Add model directory to export filters in export settings (mymodel/*)
 
 ## Developing
 
@@ -42,8 +42,8 @@ Zip addons directory
 - [x] Specify signature names from GDScript
 - [x] Infer from model from GDScript
 - [x] Simple example Godot project
-- [x] Exportable (with extra steps)
-- [ ] Custom export template
+- [x] Exportable
+- [ ] Return errors
 - [ ] Arbitrary tensor shape
 - [ ] Resolve Godot `res://` paths for model
 - [ ] Windows support

@@ -11,7 +11,7 @@ func _ready():
 	assert(!$LabelDescription/LinkButton.connect("pressed", self, "_open_repo"))
 
 	# Load model and set signature names
-	TfInferenceSingleton.load_model("tf_xor_model")
+	TfInferenceSingleton.load_model("res://tf_xor_model")
 	TfInferenceSingleton.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
 
 	_update_labels()
@@ -45,7 +45,7 @@ func _quick_example():
 
 	# Alternatively, a local instance of TFInference class
 	var tf = TFInference.new()
-	tf.load_model("./tf_xor_model")
+	tf.load_model("res://tf_xor_model")
 	tf.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
 	print("XOR(1, 0) = %s" % [tf.infer([1, 0])])
 
