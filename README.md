@@ -41,11 +41,11 @@ Subject to change after improving dependencies, export settings, etc.
 1. Disable library validation in the export template settings.
 1. Under the Resources tab of the export template settings, add your model directory to the non-resource export filters e.g. *MY_MODEL/\**.
 
-## Linux
+### Linux
 
 This addon has not been tested on Linux. See [Issue#1](https://github.com/ashtonmeuser/godot-tf-inference/issues/1).
 
-## Windows
+### Windows
 
 This addon has not been tested on Windows. See [Issue#2](https://github.com/ashtonmeuser/godot-tf-inference/issues/2).
 
