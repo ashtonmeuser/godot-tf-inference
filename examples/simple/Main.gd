@@ -11,8 +11,8 @@ func _ready():
 	assert(!$LabelDescription/LinkButton.connect("pressed", self, "_open_repo"))
 
 	# Load model and set signature names
-	TfInferenceSingleton.load_model("res://tf_xor_model")
-	TfInferenceSingleton.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
+	TFInferenceSingleton.load_model("res://tf_xor_model")
+	TFInferenceSingleton.set_names("serving_default_dense_input:0", "StatefulPartitionedCall:0")
 
 	_update_labels()
 	_quick_example()
@@ -27,7 +27,7 @@ func _update_labels():
 func _toggle_bit(i: int):
 	input[i] = (input[i] + 1) % 2
 	var t := OS.get_ticks_usec()
-	output = TfInferenceSingleton.infer(input)
+	output = TFInferenceSingleton.infer(input)
 	inference_time = OS.get_ticks_usec() - t
 	_update_labels()
 
@@ -41,7 +41,7 @@ func _quick_example():
 	# Feel free to open an issue or pull request
 
 	# Using autoloaded TFInference singleton via Project Settings (recommended)
-	print("XOR(0, 0) = %s" % [TfInferenceSingleton.infer([0, 0])])
+	print("XOR(0, 0) = %s" % [TFInferenceSingleton.infer([0, 0])])
 
 	# Alternatively, a local instance of TFInference class
 	var tf = TFInference.new()

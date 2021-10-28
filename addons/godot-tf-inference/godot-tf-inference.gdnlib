@@ -7,8 +7,8 @@ reloadable=true
 
 [entry]
 
-OSX.64="res://addons/godot-tf-inference/osx/libgodot-tf-inference.dylib"
+OSX.64="res://addons/godot-tf-inference/bin/osx/libgodot-tf-inference.dylib"
 
 [dependencies]
 
-OSX.64=[  ]
+OSX.64=[ "res://addons/godot-tf-inference/bin/osx/libtensorflow.2.6.0.dylib", "res://addons/godot-tf-inference/bin/osx/libtensorflow.2.dylib", "res://addons/godot-tf-inference/bin/osx/libtensorflow.dylib", "res://addons/godot-tf-inference/bin/osx/libtensorflow_framework.2.6.0.dylib", "res://addons/godot-tf-inference/bin/osx/libtensorflow_framework.2.dylib", "res://addons/godot-tf-inference/bin/osx/libtensorflow_framework.dylib" ]

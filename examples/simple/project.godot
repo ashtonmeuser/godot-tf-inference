@@ -15,7 +15,7 @@ run/main_scene="res://Main.tscn"
 
 [autoload]
 
-TfInferenceSingleton="*res://addons/godot-tf-inference/TFInference.gdns"
+TFInferenceSingleton="*res://addons/godot-tf-inference/TFInference.gdns"
 
 [display]
 

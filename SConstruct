@@ -18,7 +18,7 @@ libtensorflow_path = 'libtensorflow2/'
 godot_headers_path = 'godot-cpp/godot-headers/'
 cpp_bindings_path = 'godot-cpp/'
 cpp_library = 'libgodot-cpp'
-target_path = 'addons/godot-tf-inference/'
+target_path = 'addons/godot-tf-inference/bin/'
 target_name = 'godot-tf-inference'
 bits = 64
 
