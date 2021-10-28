@@ -2,15 +2,18 @@
 
 A lightweight, exportable addon allowing for loading and inferring from TensorFlow SavedModel models from GDScript. Note that this project is still in development and has only been tested on MacOS.
 
-The focus of this project is *not* on creating a TensorFlow model but rather using a model from within Godot. To explore creating a ML model, please see one of the following projects.
+The focus of this project is *not* on creating a TensorFlow model but rather using a model from within Godot. To explore creating a ML model using Godot, please refer to the following projects.
 - [CreepyCrawlAI](https://github.com/apockill/CreepyCrawlAI)
 - [Godot RL Agents](https://github.com/edbeeching/godot_rl_agents)
 - [GodotAIGym](https://github.com/lupoglaz/GodotAIGym)
+- [Godot Python](https://github.com/touilleMan/godot-python)
 
 ## Installation
 
+Installation involves simply downloading and installing a zip file from Godot's UI. Recompilation of the engine is not required.
+
 1. Ensure you have a model in an uncompressed [SavedModel format](https://www.tensorflow.org/guide/saved_model) in your Godot project. This directory should contain *.pb* files and a *variables* subdirectory. The process of creating a TensorFlow model is beyond the scope of this project.
-1. Download the Godot TF Inference addon zip file from releases.
+1. Download the Godot TF Inference addon zip file from the [releases page](https://github.com/ashtonmeuser/godot-tf-inference/releases).
 1. In Godot's Asset Library tab, click Import and select the addon zip file.
 1. Choose how to expose addon (autoload singleton or preload). The recommended way of exposing an autoload singleton can be accomplished as follows.
     1. In Godot's Project Settings menu, select AutoLoad.
@@ -36,11 +39,11 @@ Subject to change after improving dependencies, export settings, etc.
 
 ## Linux
 
-This addon has not been tested on Linux.
+This addon has not been tested on Linux. See [Issue#1](https://github.com/ashtonmeuser/godot-tf-inference/issues/1).
 
 ## Windows
 
-This addon has not been tested on Windows.
+This addon has not been tested on Windows. See [Issue#2](https://github.com/ashtonmeuser/godot-tf-inference/issues/2).
 
 ## Developing
 
@@ -65,6 +68,8 @@ scons platform=PLATFORM && cp addons/godot-tf-inference/bin/PLATFORM/libgodot-tf
 
 ## Roadmap
 
+Please feel free submit a PR or an [issue](https://github.com/ashtonmeuser/godot-tf-inference/issues).
+
 - [x] Load model from GDScript
 - [x] Specify signature names from GDScript
 - [x] Infer from model from GDScript
@@ -72,13 +77,14 @@ scons platform=PLATFORM && cp addons/godot-tf-inference/bin/PLATFORM/libgodot-tf
 - [x] Exportable
 - [ ] Return errors
 - [ ] Arbitrary tensor shape
-- [ ] Decent documentation
+- [x] Decent documentation
+- [x] Starter GitHub issues
 - [x] Resolve Godot `res://` paths for model
 - [ ] Windows support
 - [ ] Linux support
 - [ ] Cart-pole example
 - [ ] Godot 4.x support (GDExtension)
-- [ ] Type checking and handing type errors
+- [ ] Type checking and handling type errors
 - [ ] Extract model signature definitions
 - [ ] Use extracted signature names by default
 - [ ] Validate input tensor against signature defs
